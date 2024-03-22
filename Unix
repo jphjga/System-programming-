@@ -1,0 +1,169 @@
+
+Question 1
+
+
+a) A company requires a program to enter employee name, hours worked and rate per hour of an employee then calculate basic pay. Tax is calculated on basic pay as follows:
+
+Basic pay
+
+Over 70000
+
+Tax
+
+25% of basic pay
+
+Between 15000 and 15% of basic pay 70000
+
+Below 15000
+
+No tax
+
+Write a shell script that will enable the user to implement the following.
+
+i. Prompt the user to enter employee name, hours worked and rate per hour
+
+ii.
+
+Calculate the basic
+
+pay (basic pay = hours worked * rate per hour)
+
+iii. Use an if-else
+
+statement to calculate tax based on basic pay to meet the stipulated requirements shown in the table above
+
+iv. Calculate the net pay (net pay = basic pay - tax)
+
+
+#!bin/bash
+
+read -p "Enter employee name: " name
+
+read -p "Enter hours worked: hours
+
+read -p "Enter rate per hour: "rate
+
+basic_pay=$((bc<<<"$hours*$rate") if($basic_pay-gt 70000"); then tax=$($bc<<<"basic_pay*0.25") elif($basic_pay-gt 15000);then tax=$(bc<<<$basic_pay *0.25")
+
+else tax=0
+
+fi
+
+net_pay=$(bc<<<"$basic_pay-$tax);
+
+echo Employee Name: $name"
+
+echo"Basic pay: $$basic_pay"
+
+echo"Tax:$$tax"
+
+echo"Net pay:$$net_pay"
+
+
+question 2
+
+a) A system call is a controlled entry point into the kernel, allowing a process to request that the kernel perform some action on the process's behalf.
+
+To demonstrate a system call, Write a C program that opens a file, writes "Hello World" to it, reads the content back, and then prints the read content. Finally, close the file. Ensure you document (comment) every line of code in your program.
+
+#include <stdio.h> int main()
+
+{
+
+FILE *fptr, //Declare a file pointer
+
+//open a file named "hello.txt" in write mode ("w')
+
+//if the file does not exist, it will be create
+
+if(fptr ==NULL){ Printf("Error! could not open file.\n");
+
+return 1;
+
+//writes the string hello world" to the opened file
+
+fprintf(fptr, "Hello world \n");
+
+//Rewinds the file pointer to the begging of the file rewind(fptr);
+
+char buffer[50]; //Declares a charater array to
+
+store read content
+
+//Reads content from file into the buffer fgets(buffer, sizeof(buffer), fptr);
+
+printf("content of the file: %\n", buffer); //Prints the read content from buffer fclose(fptr); //Closes the file return 0;
+
+}
+
+
+
+
+
+Question 3
+
+a) You are tasked with creating a shell script to calculate and display the electricity bill for a given customer based on the units consumed. The program should consider different charging rates and apply surcharges. as specified. Implement the program using the provided criteria. The charges are as follow:
+
+Units
+
+upto 199
+
+Charges per unit (Ksh)
+
+120
+
+200 and above but less 150
+
+than 400 400 and above but less 180
+
+than 600
+
+600 and above 200
+
+Write a shell script to implement the following
+
+Prompt the user to enter CustomerID, CustomerName and
+
+UnitConsumed Use an if..else statement to
+
+check the above given conditions and apply the necessary calculations iil
+
+Calculate the total bill
+
+
+
+#!bin/bash
+
+read -p "Enter customerID: customer_id
+
+read -p "Enter customer Name:"
+
+customer_name
+
+read -p "Enter units consumed:" units
+
+if($units -le 199);then
+
+charge_per-unit=120
+
+elif($units -It 400); then
+
+charge_per_unit=150 elif(Sunits -It 600); then
+
+charge_per_unit=180
+
+else
+
+charge_per_unit=200
+
+fi
+
+total_bill=$(bc<<<"Sunits*Scharge_per_unit")
+
+echo "Customer ID:$customer_id"
+
+echo "customer Name:$customer_name"
+
+echo "Units consumed: Sunits" echo "Charge per unit: $charge_per_unit"
+
+echo "Total Bill: Ksh Stotal-bill"
